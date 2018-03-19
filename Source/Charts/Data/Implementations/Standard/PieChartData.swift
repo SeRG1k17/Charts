@@ -28,14 +28,11 @@ open class PieChartData: ChartData
     {
         get
         {
-            if super.dataSets.count > 1
-            {
-                Swift.print("Found multiple data sets while pie chart only allows one")
-            }
             return super.dataSets
         }
         set
         {
+            assert(newValue.count > 1, "Found multiple data sets while pie chart only allows one")
             super.dataSets = newValue
         }
     }
